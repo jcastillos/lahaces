@@ -37,7 +37,7 @@ def buscar_events( name_event="" ):
     events_json['eventos']=lista_events
     j = json.dumps(events_json)
     #Importante agregar el comando de abajo si deseas el formato json
-    response.content_type = 'application/json'#Funciono por la ptmr XD
+    response.content_type = 'application/json
     print j
     c.close()
     return j
