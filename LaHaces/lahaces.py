@@ -41,6 +41,7 @@ def buscar_events( name_event="" ):
     print j
     c.close()
     return j
+
 @route('/event/nuevo', method='POST')
 def nuevo():
     nombre = request.forms.get('nombre')
@@ -58,6 +59,7 @@ def nuevo():
     c.close()
     ###SE agregaron los datos
     return "dato agregado a base de datos"
+
 @route('/event/<id>', method='GET')
 def ver_event( id="" ):
     c = db.connect('localhost', 'root', 'root', 'lahaces', charset="utf8", use_unicode=True)
