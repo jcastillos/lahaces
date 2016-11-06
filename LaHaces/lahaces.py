@@ -98,4 +98,4 @@ def lvambience():
     return "[1]"
 #---------------------------------------------------------------------------------#
 #utilizaremos la IP del servidor python(Computadora donde esta el servidor)
-run(host='10.101.49.72', port=8080, debug=True)
+run(host='localhost', port=8080, debug=True)
