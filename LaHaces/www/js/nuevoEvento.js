@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-
+    var usuario_id= cogerVariable(0);
     $("#form_nuevo").submit(function(event) {
         /* stop form from submitting normally */
         event.preventDefault();
@@ -27,6 +27,7 @@ $( document ).ready(function() {
             nombre: nombre,
             fecha: fecha2,
             lugar: lugar,
+            user_id: usuario_id,
             descripcion: descripcion
         });
 
@@ -40,3 +41,25 @@ $( document ).ready(function() {
     });
     
 });
+function cogerVariable(variable){
+
+	var tipo = typeof variable;
+	var direccion = location.href;
+
+	if (tipo == "string"){
+		var posicion = direccion.indexOf("?");
+		posicion = direccion.indexOf(variable,posicion) + variable.length;
+	}
+	else if (tipo == "number"){
+		var posicion=0;
+		for (var contador = 0 ; contador < variable + 1 ; contador++){
+			posicion = direccion.indexOf("=",++posicion);
+			if (posicion == -1)posicion=999;
+		}
+	}
+	if (direccion.charAt(posicion) == "="){
+		var final = direccion.indexOf("&",posicion);
+		if (final == -1){final=direccion.length;};
+		return direccion.substring(posicion + 1,final);
+	}
+}
