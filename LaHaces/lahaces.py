@@ -101,6 +101,9 @@ def event():
     print j
     c.close()
     return j
+
+
+
 @route('/event/nuevo', method='POST')
 def nuevo():
     nombre = request.forms.get('nombre')
