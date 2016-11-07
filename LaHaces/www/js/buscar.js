@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-      
     $("#buscar_input" ).keypress(function(e) {
         //console.log( "Handler for .keypress() called." );
         var nombre_evento = $( "#buscar_input" ).val();
@@ -16,15 +15,11 @@ $( document ).ready(function() {
                         +'<p class="list-group-item-text">Fecha: '+eventos[i].date+'</p>'
                         +'<p class="list-group-item-text">Lugar: '+eventos[i].place+'</p>'
                         +' </a>');
+                        $("#evento").html('');
+                        }
                     }
-                }
             });
         }
     });
-    $( '.evento' ).on("click",function(){
-         $("#info_eventos").html("");
-        
-    });
-        
 });
 
