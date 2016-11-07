@@ -9,7 +9,7 @@ $( document ).ready(function() {
             $.ajax({
                 // el URL hace llamado a la función desarrollada en python
 
-                url: "http://10.101.49.72:8080/buscar/events/"+String(nombre_sin_hashtag), 
+                url: "http://localhost:3306/buscar/events/"+String(nombre_sin_hashtag),
                 success: function(json){
                     eventos = json.eventos;
                     for(i = 0; i < eventos.length; i++){
