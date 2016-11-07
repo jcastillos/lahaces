@@ -42,7 +42,7 @@ def buscar_events( name_event="" ):
     c.close()
     return j
 
-@route('/event', method='GET')
+@route('/event/', method='GET')
 def event():
     # Open database connection
     c = db.connect('localhost', 'root', 'root', 'lahaces', charset="utf8", use_unicode=True)
