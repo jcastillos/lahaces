@@ -25,7 +25,7 @@ $( document ).ready(function() {
         /* Send the data using post */
         var posting = $.post(url, {
             nombre: nombre,
-            fecha: fecha,
+            fecha: fecha2,
             lugar: lugar,
             descripcion: descripcion
         });
