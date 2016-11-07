@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+
     $("#form_nuevo").submit(function(event) {
         /* stop form from submitting normally */
         event.preventDefault();
@@ -9,7 +10,17 @@ $( document ).ready(function() {
             fecha = $form.find('input[name="fecha"]').val(),
             lugar = $form.find('input[name="lugar"]').val(),
             descripcion = $form.find('input[name="descripcion"]').val(),
-            url = $form.attr('action');
+            url = $form.attr('action'),
+            fechita = fecha.substr(0,10),
+            horita = fecha.substr(11,5),
+            fecha2= fechita + " "+ horita+":00";
+
+
+
+        alert(fecha); alert(fecha2);
+        //AAAA-MM-DD HH:MM:SS
+        //2016-11-16T12:12
+
 
         /* Send the data using post */
         var posting = $.post(url, {
