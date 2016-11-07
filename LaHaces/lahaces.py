@@ -42,6 +42,65 @@ def buscar_events( name_event="" ):
     c.close()
     return j
 
+@route('/event', method='GET')
+def event():
+    # Open database connection
+    c = db.connect('localhost', 'root', 'root', 'lahaces', charset="utf8", use_unicode=True)
+    # prepare a cursor object using cursor() method
+    cursor = c.cursor()
+    #El queri busca el hashtag dentro de la descripcion del evento
+    sql = 'SELECT * FROM lahaces.events;"';
+    print sql
+    cursor.execute(sql)
+    events=cursor.fetchall();
+    lista_events = []
+    events_json=collections.OrderedDict()
+    for event in events:
+        e = collections.OrderedDict()
+        e['id'] = str(event[0])
+        e['name'] = event[1]
+        e['host'] = str(event[2])
+        e['date'] = str(event[3])
+        e['place'] = str(event[4])
+        e['description'] = event[5]
+        lista_events.append(e)
+    events_json['eventos']=lista_events
+    j = json.dumps(events_json)
+    #Importante agregar el comando de abajo si deseas el formato json
+    response.content_type = 'application/json'#Funciono por la ptmr XD
+    print j
+    c.close()
+    return j
+
+@route('buscar/event', method='GET')
+def event():
+    # Open database connection
+    c = db.connect('localhost', 'root', 'root', 'lahaces', charset="utf8", use_unicode=True)
+    # prepare a cursor object using cursor() method
+    cursor = c.cursor()
+    #El queri busca el hashtag dentro de la descripcion del evento
+    sql = 'select  event_id, name_event,user_host, date, place, description from events where description like "%#'+name_event+'%"';
+    print sql
+    cursor.execute(sql)
+    events=cursor.fetchall();
+    lista_events = []
+    events_json=collections.OrderedDict()
+    for event in events:
+        e = collections.OrderedDict()
+        e['id'] = str(event[0])
+        e['name'] = event[1]
+        e['host'] = str(event[2])
+        e['date'] = str(event[3])
+        e['place'] = str(event[4])
+        e['description'] = event[5]
+        lista_events.append(e)
+    events_json['eventos']=lista_events
+    j = json.dumps(events_json)
+    #Importante agregar el comando de abajo si deseas el formato json
+    response.content_type = 'application/json'#Funciono por la ptmr XD
+    print j
+    c.close()
+    return j
 @route('/event/nuevo', method='POST')
 def nuevo():
     nombre = request.forms.get('nombre')
