@@ -1,11 +1,15 @@
 $( document ).ready(function() {
-    $("#info_evento").html("");
+    $("#info_evento").append("");
     var id= cogerVariable(0);
     $.ajax({
         url: "http://127.0.0.1:8080/event/"+id,
         success: function(json){
             evento = json;
-                $("#info_evento").append('<h3>'+evento.name+'</h3>');
+                $("#nombreEvento").html('<p><strong>Número de Id:</strong> '+evento.id+'</p>'
+                                       +'<p><strong>Nombre:</strong> '+evento.name+'</p>'
+                                       +'<p><strong>Fecha:</strong> '+evento.date+'</p>'
+                                       +'<p><strong>Lugar:</strong> '+evento.place+'</p>'
+                                       +'<p><strong>Descripcion:</strong> '+evento.description+'</p>');
             }
 
     });
