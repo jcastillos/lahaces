@@ -17,7 +17,8 @@ $( document ).ready(function() {
                         +'<h4 class="list-group-item-heading">'+eventos[i].name+'</h4>'
                         +'<p class="list-group-item-text">Fecha: '+eventos[i].date+'</p>'
                         +'<p class="list-group-item-text">Lugar: '+eventos[i].place+'</p>'
-                        +'<input type="submit" value="Ver Evento" class="btn btn-default btn-sm">'
+                        +'<a href="verEvento.html?id='+eventos[i].id+'" class="btn btn-default btn-sm">Ver Evento</a>'
+                        //+'<a type="button" value="Ver Evento" class="btn btn-default btn-sm">'
                         +'</form></div>');
                     }
                 }
