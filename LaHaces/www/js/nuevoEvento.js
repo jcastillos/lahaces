@@ -15,13 +15,6 @@ $( document ).ready(function() {
             horita = fecha.substr(11,5),
             fecha2= fechita + " "+ horita+":00";
 
-
-
-        alert(fecha); alert(fecha2);
-        //AAAA-MM-DD HH:MM:SS
-        //2016-11-16T12:12
-
-
         /* Send the data using post */
         var posting = $.post(url, {
             nombre: nombre,
@@ -33,7 +26,7 @@ $( document ).ready(function() {
 
         /* Put the results in a div */
         posting.done(function(data) {
-            alert("Data: " + data + "\nStatus: " + status);
+
             //var content = $(data).find('#content');
             //$("#result").empty().append(content);
         });
