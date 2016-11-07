@@ -1,1 +1,0 @@
-SELECT * FROM lahaces.users;
