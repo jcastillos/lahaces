@@ -2,7 +2,7 @@ $( document ).ready(function() {
     $("#info_evento").append("");
     var id= cogerVariable(0);
     $.ajax({
-        url: "http://127.0.0.1:8080/event/"+id,
+        url: "http://10.101.50.13:8080/event/"+id,
         success: function(json){
             evento = json;
                 $("#nombreEvento").html('<p><strong>Número de Id:</strong> '+evento.id+'</p>'

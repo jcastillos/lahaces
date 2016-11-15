@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-                url: "http://127.0.0.1:8080/event/",
+                url: "http://10.101.50.13:8080/event/",
                 success: function(json){
                     eventos = json.eventos;
                     for(i = 0; i < eventos.length; i++){

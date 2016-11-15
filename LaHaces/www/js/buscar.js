@@ -6,7 +6,7 @@ $( document ).ready(function() {
         if(e.keyCode == 13){
             $("#info_eventos").html("");
             $.ajax({
-                url: "http://127.0.0.1:8080/buscar/events/"+String(nombre_sin_hashtag),
+                url: "http://10.101.50.13:8080/buscar/events/"+String(nombre_sin_hashtag),
                 success: function(json){
                     eventos = json.eventos;
                     for(i = 0; i < eventos.length; i++){
